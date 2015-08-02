@@ -1,0 +1,1 @@
+/home/tkrahulik/EIC_Work/Geant4_Studies/DIRCStandAlone/DIRC_MK2/EicDircStandalone/EicDircStandalone-install/bin/dirc
