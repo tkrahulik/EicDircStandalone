@@ -231,7 +231,7 @@ void EicDircStandalonePhysicsList::ConstructOp()
 
   SetVerbose(0);
 
-  G4int MaxNumPhotons = 300;
+  G4int MaxNumPhotons = 1000;
 
   theCerenkovProcess->SetTrackSecondariesFirst(true);
   theCerenkovProcess->SetMaxBetaChangePerStep(10.0);
@@ -255,11 +255,11 @@ void EicDircStandalonePhysicsList::ConstructOp()
       pmanager->AddProcess(theCerenkovProcess);
       pmanager->SetProcessOrdering(theCerenkovProcess,idxPostStep);
     }
-    if (theScintillationProcess->IsApplicable(*particle)) {
+    /*if (theScintillationProcess->IsApplicable(*particle)) {
       pmanager->AddProcess(theScintillationProcess);
       pmanager->SetProcessOrderingToLast(theScintillationProcess, idxAtRest);
       pmanager->SetProcessOrderingToLast(theScintillationProcess, idxPostStep);
-    }
+      }*/
     if (particleName == "opticalphoton") {
       G4cout << " AddDiscreteProcess to OpticalPhoton " << G4endl;
       pmanager->AddDiscreteProcess(theAbsorptionProcess);
