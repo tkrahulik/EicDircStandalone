@@ -108,9 +108,9 @@ G4VPhysicalVolume* EicDircStandaloneDetectorConstruction::Construct()
 
   SDman->AddNewDetector( photoSD );
 
-
   // always return the physical World
   //
+
   return world_phys;
 
 }
