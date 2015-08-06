@@ -1,2 +1,0 @@
-/home/tkrahulik/EIC_Work/Geant4_Studies/DIRCStandAlone/DIRC_MK2/EicDircStandalone/EicDircStandalone-build/CMakeFiles/N06.dir
-/home/tkrahulik/EIC_Work/Geant4_Studies/DIRCStandAlone/DIRC_MK2/EicDircStandalone/EicDircStandalone-build/CMakeFiles/dirc.dir
