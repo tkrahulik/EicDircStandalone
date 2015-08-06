@@ -30,6 +30,7 @@ EicDircStandalonePrimaryGeneratorAction::EicDircStandalonePrimaryGeneratorAction
   //particleGun->SetParticleMomentum(G4ThreeVector(0.,0.,10.*GeV));
   particleGun->SetParticlePosition(G4ThreeVector(0.*cm,-50.*cm,10.*cm));
   particleGun->SetParticleMomentum(G4ThreeVector(0., 50.*GeV, -10.*GeV ));
+  //particleGun->SetParticleMomentum(G4ThreeVector(0., 10.*GeV, 0.*GeV ));
   //particleGun->SetParticleMomentumDirection(G4ThreeVector(0.0*cm,0.0*cm,-1.0*m));
   //particleGun->SetParticleEnergy(50*KeV);
 
