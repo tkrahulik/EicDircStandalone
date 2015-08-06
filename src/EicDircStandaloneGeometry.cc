@@ -13,11 +13,9 @@ void EicDircStandaloneGeometry::SetDefault(){
   world_y = 1.0 * m;
   world_z = 5.0 * m;
 
-  bar_x = 1.7 * cm;
+  bar_x = 1.725 * cm;
   bar_y = 3.5 * cm;
   bar_z = 490. *cm;
-
-
 
   return;
 
