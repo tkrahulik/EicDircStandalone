@@ -87,7 +87,7 @@ G4VPhysicalVolume* EicDircStandaloneDetectorConstruction::Construct()
   G4VPhysicalVolume* bar_phys = new G4PVPlacement(0,
 						   G4ThreeVector(),
 						   bar_log,
-						  "World",
+						  "Bar",
 						   world_log,
 						   false,
 						   0
