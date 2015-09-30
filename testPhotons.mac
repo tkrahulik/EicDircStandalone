@@ -1,5 +1,16 @@
-/gun/position 0 0 -0.3 m
 /gun/particle opticalphoton
-/gun/momentum 1 1 3 eV
+
+# gun position at origin of coordinate system, i.e. incenter of DIRC bar
+/gun/position 0 0 0 m
+
+# photon angle to bar surface 0 degrees
+#/gun/momentum 0 0 4 eV
+
+# photon angle to bar surface 45 degrees
+/gun/momentum 0 2 2 eV
+
+# photon angle to bar surface 90 degrees
+#/gun/momentum 0 4 0 eV
+
 
 /run/beamOn 1

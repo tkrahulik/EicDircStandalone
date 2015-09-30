@@ -22,14 +22,15 @@ EicDircStandalonePrimaryGeneratorAction::EicDircStandalonePrimaryGeneratorAction
   //default kinematic
   //
   G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
-  G4ParticleDefinition* particle = particleTable->FindParticle("e-");
+  //  G4ParticleDefinition* particle = particleTable->FindParticle("e-");
+  G4ParticleDefinition* particle = particleTable->FindParticle("pi-");
 
   particleGun->SetParticleDefinition(particle);
   particleGun->SetParticleTime(0.0*ns);
   //particleGun->SetParticlePosition(G4ThreeVector(0.0*cm,0.0*cm,-1.0*m));
   //particleGun->SetParticleMomentum(G4ThreeVector(0.,0.,10.*GeV));
-  particleGun->SetParticlePosition(G4ThreeVector(0.*cm,-50.*cm,10.*cm));
-  particleGun->SetParticleMomentum(G4ThreeVector(0., 50.*GeV, -10.*GeV ));
+  particleGun->SetParticlePosition(G4ThreeVector(0.*cm,-15.*cm,0.*cm));
+  particleGun->SetParticleMomentum(G4ThreeVector(0., 5.*GeV, 0.*GeV ));
   //particleGun->SetParticleMomentum(G4ThreeVector(0., 10.*GeV, 0.*GeV ));
   //particleGun->SetParticleMomentumDirection(G4ThreeVector(0.0*cm,0.0*cm,-1.0*m));
   //particleGun->SetParticleEnergy(50*KeV);

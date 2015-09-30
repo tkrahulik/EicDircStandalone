@@ -94,8 +94,6 @@ G4bool EicDircStandaloneSD::ProcessHits_constStep(const G4Step* aStep, G4Touchab
   if(aStep->GetTrack()->GetDefinition() != G4OpticalPhoton::OpticalPhotonDefinition())
     return false;
 
-  //  G4cout << "HIT!" << G4endl;
-
   G4StepPoint* thePrePoint = aStep->GetPreStepPoint();
   G4TouchableHistory* theTouchable = (G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable());
   G4VPhysicalVolume* thePrePV = theTouchable->GetVolume();

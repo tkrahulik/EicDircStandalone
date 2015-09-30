@@ -87,18 +87,38 @@ G4VPhysicalVolume* EicDircStandaloneDetectorConstruction::Construct()
   G4VPhysicalVolume* bar_phys = new G4PVPlacement(0,
 						   G4ThreeVector(),
 						   bar_log,
-						  "World",
+						  "Bar",
 						   world_log,
 						   false,
 						   0
 						   );
 
-  // Give DIRC an optical surface
+
+  // Create volume for photosensor
   //
+  G4double photosensor_thickness = 1.0*cm;
 
-  G4LogicalSkinSurface* DIRCSurface = new G4LogicalSkinSurface("DIRCSurface", bar_log, getDircMaterial()->getOpticalDIRCSurface());
+  G4Box* photosensor = new G4Box("Photosensor",
+			     0.5 * getDircGeometry()->GetBarX(),
+			     0.5 * getDircGeometry()->GetBarY(),
+			     0.5 * photosensor_thickness
+			     );
+  G4LogicalVolume* end_of_dirc_log = new G4LogicalVolume(photosensor,
+						 getDircMaterial()->getQuartz(),
+						 "Photosensor", 0,0,0);
+  
+  G4VPhysicalVolume* end_of_dirc_phys = new G4PVPlacement(0,
+							  G4ThreeVector( 0,
+									 0,
+									 0.5 * getDircGeometry()->GetBarZ() + 0.5 * photosensor_thickness ),
+							  end_of_dirc_log,
+							  "Photosensor",
+							  world_log,
+							  false,
+							  0
+							  );
 
-  // Make photocathode sensitive Detector
+  // Make photosensor sensitive Detector
   //
   G4SDManager* SDman = G4SDManager::GetSDMpointer();
   G4String photoSDname = "/EicDircStandaloneDet/photoSD";
