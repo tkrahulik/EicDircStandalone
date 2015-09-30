@@ -162,59 +162,6 @@ EicDircStandaloneMaterial::EicDircStandaloneMaterial(){
   Quartz->SetMaterialPropertiesTable(fMPT_q);
   Quartz->SetMaterialPropertiesTable(fMPT_q);
 
-//  OpticalDIRCSurface = new G4OpticalSurface("OpticalDIRCSurface", glisur, polished, dielectric_dielectric);
-//
-//  G4double dirc_ephoton[32] = 
-//    { 2.034*eV, 2.068*eV, 2.103*eV, 2.139*eV,
-//      2.177*eV, 2.216*eV, 2.256*eV, 2.298*eV,
-//      2.341*eV, 2.386*eV, 2.433*eV, 2.481*eV,
-//      2.532*eV, 2.585*eV, 2.640*eV, 2.697*eV,
-//      2.757*eV, 2.820*eV, 2.885*eV, 2.954*eV,
-//      3.026*eV, 3.102*eV, 3.181*eV, 3.265*eV,
-//      3.353*eV, 3.446*eV, 3.545*eV, 3.649*eV,
-//      3.760*eV, 3.877*eV, 4.002*eV, 4.136*eV
-//    };
-//
-//  G4double dirc_REFL[32] = 
-//    { 0.900, 0.900, 0.900, 0.900,
-//      0.900, 0.900, 0.900, 0.900,
-//      0.900, 0.900, 0.900, 0.900,
-//      0.900, 0.900, 0.900, 0.900,
-//      0.900, 0.900, 0.900, 0.900,
-//      0.900, 0.900, 0.900, 0.900,
-//      0.900, 0.900, 0.900, 0.900,
-//      0.900, 0.900, 0.900, 0.900     
-//    };
-//
-//  G4double dirc_EFF[32] =
-//    { 0., 0., 0., 0.,
-//      0., 0., 0., 0.,
-//      0., 0., 0., 0.,
-//      0., 0., 0., 0.,
-//      0., 0., 0., 0.,
-//      0., 0., 0., 0.,
-//      0., 0., 0., 0.,
-//      0., 0., 0., 0.
-//    };
-//
-//  /*
-//  G4double dirc_EFF[32] = 
-//    { 1., 1., 1., 1.,
-//      1., 1., 1., 1.,
-//      1., 1., 1., 1.,
-//      1., 1., 1., 1.,
-//      1., 1., 1., 1.,
-//      1., 1., 1., 1.,
-//      1., 1., 1., 1.,
-//      1., 1., 1., 1.
-//    };
-//  */
-//
-//  G4MaterialPropertiesTable* OpticalDIRCSurface_MPT = new G4MaterialPropertiesTable();
-//  OpticalDIRCSurface_MPT->AddProperty("EFFICIENCY", dirc_ephoton, dirc_EFF, 32);
-//  OpticalDIRCSurface_MPT->AddProperty("REFLECTIVITY", dirc_ephoton, dirc_REFL, 32);
-//  OpticalDIRCSurface->SetMaterialPropertiesTable(OpticalDIRCSurface_MPT);
-
   // done
   //
   return;
