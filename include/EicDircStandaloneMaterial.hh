@@ -17,8 +17,6 @@ public:
 
   G4Material* getQuartz() {return Quartz;}
 
-  G4OpticalSurface* getOpticalDIRCSurface() {return OpticalDIRCSurface;}
-
   G4Material* getAir() {return AmbientAir;}
   G4Material* getMirrorQuartz() {return SiO2MirrorQuartz;}
 
@@ -38,8 +36,6 @@ private:
   G4Material* Q;
 
   G4Material* Quartz;
-
-  G4OpticalSurface* OpticalDIRCSurface;
 
   G4Material* Vacuum;
   G4Material* AmbientAir;
