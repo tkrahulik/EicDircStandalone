@@ -16,8 +16,6 @@ class EicDircStandalonePhysicsListMessenger;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-/** @TODO Review this class completely
- */
 class EicDircStandalonePhysicsList : public G4VUserPhysicsList
 {
 public:

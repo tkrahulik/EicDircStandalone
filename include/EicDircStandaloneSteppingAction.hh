@@ -6,18 +6,13 @@
 
 #include "G4OpBoundaryProcess.hh"
 
-//class EicDircStandaloneRecorderBase;
-//class EicDircStandaloneEventAction;
 class EicDircStandaloneTrackingAction;
 class EicDircStandaloneSteppingMessenger;
 
-/** @TODO Review this class completely
- */
 class EicDircStandaloneSteppingAction : public G4UserSteppingAction
 {
 public:
 
-  //  EicDircStandaloneSteppingAction(EicDircStandaloneRecorderBase*);
   EicDircStandaloneSteppingAction();
   virtual ~EicDircStandaloneSteppingAction();
   virtual void UserSteppingAction(const G4Step*);
@@ -27,7 +22,6 @@ public:
 
 private:
 
-  //  EicDircStandaloneRecorderBase* fRecorder;
   G4bool fOneStepPrimaries;
   EicDircStandaloneSteppingMessenger* fSteppingMessenger;
 

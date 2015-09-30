@@ -17,7 +17,7 @@ public:
 
   void Initialize(G4HCofThisEvent*HCE);
   G4bool ProcessHits(G4Step*aStep,G4TouchableHistory*ROhist);
-  G4bool ProcessHits_constStep(const G4Step*aStep, G4TouchableHistory*ROhist);
+  G4bool ProcessHits_constStep(const G4Step*aStep,G4TouchableHistory*ROhist);
   void EndOfEvent(G4HCofThisEvent*HCE);
   void clear();
   void DrawAll();
@@ -25,10 +25,6 @@ public:
 
 private:
   EicDircStandalonePhotoHitsCollection * PhotoHitCollection;
-  //G4int NumberOfSensitiveHpds;
-  //G4int NumberOfSensitiveSectorsInHpd;
-  //G4int NumberOfSensitivePixelsInSector;
-  //std::vector<G4int> HpdSDID;
 
   G4int HCID;
 };

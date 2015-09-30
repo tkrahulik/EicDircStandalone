@@ -60,7 +60,7 @@ void EicDircStandaloneEventAction::EndOfEventAction(const G4Event* evt)
   G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
 
   // fill ntuple
-  for ( G4int ihit = 0; ihit < photoHits->GetSize(); ihit++ )
+  for ( G4int ihit = 0; ihit < (G4int)photoHits->GetSize(); ihit++ )
     {
       EicDircStandalonePhotoHit* photoHit_i = static_cast<EicDircStandalonePhotoHit*>( photoHits->GetHit(ihit) );
       analysisManager->FillNtupleDColumn(0, eventID);
@@ -68,6 +68,7 @@ void EicDircStandaloneEventAction::EndOfEventAction(const G4Event* evt)
       analysisManager->FillNtupleDColumn(2, photoHit_i->GetHitPos().getX() );
       analysisManager->FillNtupleDColumn(3, photoHit_i->GetHitPos().getY() );
       analysisManager->FillNtupleDColumn(4, photoHit_i->GetHitPos().getZ() );
+      analysisManager->FillNtupleDColumn(5, photoHits->GetSize() );
       analysisManager->AddNtupleRow();
     }
 

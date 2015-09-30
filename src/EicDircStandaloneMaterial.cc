@@ -19,9 +19,6 @@
 #include "G4OpBoundaryProcess.hh"
 #include "G4MaterialPropertyVector.hh"
 
-//#include "EicDircStandaloneMaterialParameters.hh"
-//#include "EicDircStandaloneGeometryParameters.hh"
-
 
 EicDircStandaloneMaterial::EicDircStandaloneMaterial(){
 
@@ -49,12 +46,12 @@ EicDircStandaloneMaterial::EicDircStandaloneMaterial(){
   // define Elements
   //
 
-  H  = manager->FindOrBuildElement(1);
-  N  = manager->FindOrBuildElement(7);
-  O  = manager->FindOrBuildElement(8);
-  C  = manager->FindOrBuildElement(6);
-  F  = manager->FindOrBuildElement(9);
-  Si = manager->FindOrBuildElement(14);
+  H  = manager->FindOrBuildElement(z=1);
+  N  = manager->FindOrBuildElement(z=7);
+  O  = manager->FindOrBuildElement(z=8);
+  C  = manager->FindOrBuildElement(z=6);
+  F  = manager->FindOrBuildElement(z=9);
+  Si = manager->FindOrBuildElement(z=14);
 
   //Vacuum
   //
@@ -95,23 +92,13 @@ EicDircStandaloneMaterial::EicDircStandaloneMaterial(){
       1.00029, 1.00029, 1.00029, 1.00029,
       1.00029, 1.00029, 1.00029, 1.00029
     };
-  /*
-  G4double air_RefractiveIndex[air_nEntries] =
-    { 1.0, 1.0, 1.0, 1.0,
-      1.0, 1.0, 1.0, 1.0,
-      1.0, 1.0, 1.0, 1.0,
-      1.0, 1.0, 1.0, 1.0,
-      1.0, 1.0, 1.0, 1.0,
-      1.0, 1.0, 1.0, 1.0,
-      1.0, 1.0, 1.0, 1.0,
-      1.0, 1.0, 1.0, 1.0
-    };
-  */
+
   G4MaterialPropertiesTable* fMPT_air = new G4MaterialPropertiesTable();
 
   fMPT_air->AddProperty("RINDEX", air_PhotonEnergy, air_RefractiveIndex, air_nEntries )->SetSpline(true);
 
   AmbientAir->SetMaterialPropertiesTable(fMPT_air);
+
 
   //Quartz
   //
@@ -143,21 +130,9 @@ EicDircStandaloneMaterial::EicDircStandaloneMaterial(){
       1.457, 1.457, 1.457, 1.457
     };
 
-  G4double q_ReflectiveIndex[q_nEntries] = 
-    { 0.900, 0.900, 0.900, 0.900,
-      0.900, 0.900, 0.900, 0.900,
-      0.900, 0.900, 0.900, 0.900,
-      0.900, 0.900, 0.900, 0.900,
-      0.900, 0.900, 0.900, 0.900,
-      0.900, 0.900, 0.900, 0.900,
-      0.900, 0.900, 0.900, 0.900,
-      0.900, 0.900, 0.900, 0.900     
-    };
-
   G4MaterialPropertiesTable* fMPT_q = new G4MaterialPropertiesTable();
 
   fMPT_q->AddProperty("RINDEX", q_PhotonEnergy, q_RefractiveIndex, q_nEntries )->SetSpline(true);
-  fMPT_q->AddProperty("REFLECTIVITY", q_PhotonEnergy, q_ReflectiveIndex, q_nEntries)->SetSpline(true);
 
   Quartz->SetMaterialPropertiesTable(fMPT_q);
   Quartz->SetMaterialPropertiesTable(fMPT_q);

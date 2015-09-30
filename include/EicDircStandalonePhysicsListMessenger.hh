@@ -10,8 +10,6 @@ class G4UIcmdWithAnInteger;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-/** @TODO Review this class completely
- */
 class EicDircStandalonePhysicsListMessenger: public G4UImessenger
 {
 public:
@@ -32,4 +30,3 @@ private:
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 #endif
-

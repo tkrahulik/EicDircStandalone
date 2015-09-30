@@ -9,8 +9,6 @@
 class G4Timer;
 class G4Run;
 
-/** @TODO Review this class completely
- */
 class EicDircStandaloneRunAction : public G4UserRunAction
 {
 public:
