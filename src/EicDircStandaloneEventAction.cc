@@ -68,7 +68,8 @@ void EicDircStandaloneEventAction::EndOfEventAction(const G4Event* evt)
       analysisManager->FillNtupleDColumn(2, photoHit_i->GetHitPos().getX() );
       analysisManager->FillNtupleDColumn(3, photoHit_i->GetHitPos().getY() );
       analysisManager->FillNtupleDColumn(4, photoHit_i->GetHitPos().getZ() );
-      analysisManager->FillNtupleDColumn(5, photoHits->GetSize() );
+      analysisManager->FillNtupleDColumn(5, photoHit_i->GetWavelength() );
+      analysisManager->FillNtupleDColumn(6, photoHits->GetSize() );
       analysisManager->AddNtupleRow();
     }
 

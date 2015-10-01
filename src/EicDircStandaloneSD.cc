@@ -40,15 +40,20 @@ G4bool EicDircStandaloneSD::ProcessHits_constStep(const G4Step*aStep,G4Touchable
 
   //G4TouchableHistory* theTouchable = (G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable());
 
+  G4Track* theTrack = aStep->GetTrack();
+
   G4StepPoint* thePostPoint = aStep->GetPostStepPoint();
 
   EicDircStandalonePhotoHit* hit=NULL;
 
   G4ThreeVector hitpos = thePostPoint->GetPosition();
 
+  G4double wavelength = 1240.0 / theTrack->GetTotalEnergy()*eV; // in nm
+
   if(hit==NULL){//this pad wasnt previously hit in this event
     hit = new EicDircStandalonePhotoHit(); //so create new hit
     hit->SetHitPos(hitpos.getX(), hitpos.getY(), hitpos.getZ());
+    hit->SetWavelength( wavelength );
     PhotoHitCollection->insert(hit);
   }
 

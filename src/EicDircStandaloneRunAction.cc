@@ -57,6 +57,7 @@ void EicDircStandaloneRunAction::BeginOfRunAction(const G4Run* aRun)
   analysisManager->CreateNtupleDColumn("x");
   analysisManager->CreateNtupleDColumn("y");
   analysisManager->CreateNtupleDColumn("z");
+  analysisManager->CreateNtupleDColumn("wavelength");
   analysisManager->CreateNtupleDColumn("ntotal");
   analysisManager->FinishNtuple();
 

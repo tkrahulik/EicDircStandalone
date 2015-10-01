@@ -35,9 +35,17 @@ public:
 
   inline G4ThreeVector GetHitPos(){return fHitPos;}
 
+  inline void SetWavelength(G4double lambda)
+  {
+    fWavelength = lambda;
+  }
+
+  inline G4double GetWavelength(){return fWavelength;}
+
 private:
 
   G4ThreeVector fHitPos;
+  G4double fWavelength;
 
 };
 
