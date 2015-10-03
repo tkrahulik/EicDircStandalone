@@ -57,6 +57,8 @@ void EicDircStandaloneRunAction::BeginOfRunAction(const G4Run* aRun)
   analysisManager->CreateNtupleDColumn("x");
   analysisManager->CreateNtupleDColumn("y");
   analysisManager->CreateNtupleDColumn("z");
+  analysisManager->CreateNtupleDColumn("wavelength");
+  analysisManager->CreateNtupleDColumn("ntotal");
   analysisManager->FinishNtuple();
 
 }
@@ -69,7 +71,7 @@ void EicDircStandaloneRunAction::EndOfRunAction(const G4Run* aRun)
   G4int nofEvents = aRun->GetNumberOfEvent();
   G4cout << "number of event = " << nofEvents << " " << *timer << G4endl;
 
-  //  if ( nofEvents == 0 ) return;
+  if ( nofEvents == 0 ) return;
 
   // save analysis output
   //

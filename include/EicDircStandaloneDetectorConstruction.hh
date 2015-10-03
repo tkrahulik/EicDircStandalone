@@ -27,19 +27,19 @@ public:
 
   G4VPhysicalVolume* Construct();
 
-  EicDircStandaloneMaterial* getDircMaterial() {return  dircMaterial; }
-  EicDircStandaloneGeometry* getDircGeometry() {return  dircGeometry; }
+  EicDircStandaloneMaterial* getDircMaterial() {return  _dircMaterial; }
+  EicDircStandaloneGeometry* getDircGeometry() {return  _dircGeometry; }
 
 protected:
 
 private:
 
-  G4Box* fExperimentalHall_box;
-  G4LogicalVolume* fExperimentalHall_log;
-  G4VPhysicalVolume* fExperimentalHall_phys;
+  G4Box* _world_box;
+  G4LogicalVolume* _world_log;
+  G4VPhysicalVolume* _world_phys;
 
-  EicDircStandaloneMaterial* dircMaterial;
-  EicDircStandaloneGeometry* dircGeometry;
+  EicDircStandaloneMaterial* _dircMaterial;
+  EicDircStandaloneGeometry* _dircGeometry;
 
 };
 

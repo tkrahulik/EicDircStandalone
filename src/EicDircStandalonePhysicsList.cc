@@ -94,6 +94,10 @@ void EicDircStandalonePhysicsList::ConstructMesons()
   G4PionPlus::PionPlusDefinition();
   G4PionMinus::PionMinusDefinition();
   G4PionZero::PionZeroDefinition();
+
+  G4KaonPlus::KaonPlusDefinition();
+  G4KaonMinus::KaonMinusDefinition();
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

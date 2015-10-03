@@ -26,34 +26,26 @@ public:
   inline void *operator new(size_t);
   inline void operator delete(void *aHit);
 
-  //    virtual void Draw();
   virtual void Print();
 
-  //    inline void SetDrawit(G4bool b){fDrawit=b;}
-  //    inline G4bool GetDrawit(){return fDrawit;}
-  //
-  //    inline void IncPhotonCount(){fPhotons++;}
-  //    inline G4int GetPhotonCount(){return fPhotons;}
-  //
-  //    inline void SetPMTNumber(G4int n) { fPmtNumber = n; }
-  //    inline G4int GetPMTNumber() { return fPmtNumber; }
-  //
-  //    inline void SetPMTPhysVol(G4VPhysicalVolume* physVol){this->fPhysVol=physVol;}
-  //    inline G4VPhysicalVolume* GetPMTPhysVol(){return fPhysVol;}
-
-  inline void SetHitPos(G4double x,G4double y,G4double z){
+  inline void SetHitPos(G4double x,G4double y,G4double z)
+  {
     fHitPos=G4ThreeVector(x,y,z);
   }
 
   inline G4ThreeVector GetHitPos(){return fHitPos;}
 
+  inline void SetWavelength(G4double lambda)
+  {
+    fWavelength = lambda;
+  }
+
+  inline G4double GetWavelength(){return fWavelength;}
+
 private:
 
-  //    G4int fPmtNumber;
-  //    G4int fPhotons;
   G4ThreeVector fHitPos;
-  //    G4VPhysicalVolume* fPhysVol;
-  //   G4bool fDrawit;
+  G4double fWavelength;
 
 };
 

@@ -1,12 +1,5 @@
 #include "EicDircStandaloneSteppingAction.hh"
-//#include "EicDircStandaloneEventAction.hh"
-//#include "EicDircStandaloneTrackingAction.hh"
-//#include "EicDircStandaloneTrajectory.hh"
 #include "EicDircStandaloneSD.hh"
-//#include "EicDircStandaloneUserTrackInformation.hh"
-//#include "EicDircStandaloneUserEventInformation.hh"
-#include "EicDircStandaloneSteppingMessenger.hh"
-//#include "EicDircStandaloneRecorderBase.hh"
 
 #include "G4SteppingManager.hh"
 #include "G4SDManager.hh"
@@ -26,8 +19,6 @@
 EicDircStandaloneSteppingAction::EicDircStandaloneSteppingAction()
   : fOneStepPrimaries(false)
 {
-  fSteppingMessenger = new EicDircStandaloneSteppingMessenger(this);
-
   fExpectedNextStatus = Undefined;
 }
 
@@ -38,6 +29,7 @@ EicDircStandaloneSteppingAction::~EicDircStandaloneSteppingAction() {}
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void EicDircStandaloneSteppingAction::UserSteppingAction(const G4Step * theStep){
+
   G4Track* theTrack = theStep->GetTrack();
 
   G4StepPoint* thePrePoint = theStep->GetPreStepPoint();

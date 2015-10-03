@@ -16,9 +16,6 @@
 
 #include "G4NistManager.hh"
 
-#include "G4Ellipsoid.hh"
-#include "G4Sphere.hh"
-#include "G4Orb.hh"
 #include "G4Cons.hh"
 #include "G4DisplacedSolid.hh"
 #include "G4ExtrudedSolid.hh"
@@ -33,7 +30,12 @@ using namespace std;
 
 EicDircStandaloneDetectorConstruction::EicDircStandaloneDetectorConstruction()
 {
+  _world_box = NULL;
+  _world_log = NULL;
+  _world_phys = NULL;
 
+  _dircMaterial = NULL;
+  _dircGeometry = NULL;
 }
 
 
@@ -45,33 +47,33 @@ EicDircStandaloneDetectorConstruction::~EicDircStandaloneDetectorConstruction()
 
 G4VPhysicalVolume* EicDircStandaloneDetectorConstruction::Construct()
 {
-  dircMaterial = new EicDircStandaloneMaterial();
-  dircGeometry = new EicDircStandaloneGeometry();
+  _dircMaterial = new EicDircStandaloneMaterial();
+  _dircGeometry = new EicDircStandaloneGeometry();
 
   // The World
   //
-  G4Box* world_box = new G4Box("World",
-                               0.5 * getDircGeometry()->GetWorldX(),
-                               0.5 * getDircGeometry()->GetWorldY(),
-                               0.5 * getDircGeometry()->GetWorldZ()
-                               );
+  _world_box = new G4Box("World",
+			 0.5 * getDircGeometry()->GetWorldX(),
+			 0.5 * getDircGeometry()->GetWorldY(),
+			 0.5 * getDircGeometry()->GetWorldZ()
+			 );
 
-  G4LogicalVolume* world_log = new G4LogicalVolume(world_box,
-                                                   getDircMaterial()->getAir(),
-                                                   "World",
-                                                   0,
-                                                   0,
-                                                   0
-                                                   );
+  _world_log = new G4LogicalVolume(_world_box,
+				   getDircMaterial()->getAir(),
+				   "World",
+				   0,
+				   0,
+				   0
+				   );
 
-  G4VPhysicalVolume* world_phys = new G4PVPlacement(0,
-                                                    G4ThreeVector(),
-                                                    world_log,
-                                                    "World",
-                                                    0,
-                                                    false,
-                                                    0
-                                                    );
+  _world_phys = new G4PVPlacement(0,
+				  G4ThreeVector(),
+				  _world_log,
+				  "World",
+				  0,
+				  false,
+				  0
+				  );
 
   // The Quartz Bar
   //
@@ -80,43 +82,47 @@ G4VPhysicalVolume* EicDircStandaloneDetectorConstruction::Construct()
 			     0.5 * getDircGeometry()->GetBarY(),
 			     0.5 * getDircGeometry()->GetBarZ()
 			     );
+
   G4LogicalVolume* bar_log = new G4LogicalVolume(bar_box,
 						 getDircMaterial()->getQuartz(),
 						 "Bar", 0,0,0);
 
-  G4VPhysicalVolume* bar_phys = new G4PVPlacement(0,
-						   G4ThreeVector(),
-						   bar_log,
-						  "Bar",
-						   world_log,
-						   false,
-						   0
-						   );
+  //  G4VPhysicalVolume* bar_phys = 
+  new G4PVPlacement(0,
+		    G4ThreeVector(),
+		    bar_log,
+		    "Bar",
+		    _world_log,
+		    false,
+		    0
+		    );
 
 
   // Create volume for photosensor
   //
   G4double photosensor_thickness = 1.0*cm;
 
-  G4Box* photosensor = new G4Box("Photosensor",
-			     0.5 * getDircGeometry()->GetBarX(),
-			     0.5 * getDircGeometry()->GetBarY(),
-			     0.5 * photosensor_thickness
-			     );
-  G4LogicalVolume* end_of_dirc_log = new G4LogicalVolume(photosensor,
-						 getDircMaterial()->getQuartz(),
-						 "Photosensor", 0,0,0);
+  G4Box* photosensor_solid = new G4Box("Photosensor",
+				 0.5 * getDircGeometry()->GetBarX(),
+				 0.5 * getDircGeometry()->GetBarY(),
+				 0.5 * photosensor_thickness
+				 );
+
+  G4LogicalVolume* photosensor_log = new G4LogicalVolume(photosensor_solid,
+							 getDircMaterial()->getQuartz(),
+							 "Photosensor", 0,0,0);
   
-  G4VPhysicalVolume* end_of_dirc_phys = new G4PVPlacement(0,
-							  G4ThreeVector( 0,
-									 0,
-									 0.5 * getDircGeometry()->GetBarZ() + 0.5 * photosensor_thickness ),
-							  end_of_dirc_log,
-							  "Photosensor",
-							  world_log,
-							  false,
-							  0
-							  );
+  //  G4VPhysicalVolume* photosensor_phys = 
+  new G4PVPlacement(0,
+		    G4ThreeVector( 0,
+				   0,
+				   0.5 * getDircGeometry()->GetBarZ() + 0.5 * photosensor_thickness ),
+		    photosensor_log,
+		    "Photosensor",
+		    _world_log,
+		    false,
+		    0
+		    );
 
   // Make photosensor sensitive Detector
   //
@@ -131,6 +137,6 @@ G4VPhysicalVolume* EicDircStandaloneDetectorConstruction::Construct()
   // always return the physical World
   //
 
-  return world_phys;
+  return _world_phys;
 
 }

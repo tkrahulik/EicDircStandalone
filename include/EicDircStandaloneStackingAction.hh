@@ -6,8 +6,6 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-/** @TODO Review this class completely
- */
 class EicDircStandaloneStackingAction : public G4UserStackingAction
 {
 public:
@@ -26,4 +24,3 @@ private:
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 #endif
-

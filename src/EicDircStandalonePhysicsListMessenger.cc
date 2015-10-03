@@ -45,11 +45,11 @@ EicDircStandalonePhysicsListMessenger::~EicDircStandalonePhysicsListMessenger()
 void EicDircStandalonePhysicsListMessenger::SetNewValue(G4UIcommand* command,
                                              G4String newValue)
 {
-//  if( command == verboseCmd )
-//    { pPhysicsList->SetVerbose(verboseCmd->GetNewIntValue(newValue));}
-//
-//  if( command == cerenkovCmd )
-//    {pPhysicsList->SetNbOfPhotonsCerenkov(cerenkovCmd->GetNewIntValue(newValue));}
+  if( command == verboseCmd )
+    { pPhysicsList->SetVerbose(verboseCmd->GetNewIntValue(newValue));}
+
+  if( command == cerenkovCmd )
+    {pPhysicsList->SetNbOfPhotonsCerenkov(cerenkovCmd->GetNewIntValue(newValue));}
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
